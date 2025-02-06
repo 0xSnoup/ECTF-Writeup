@@ -18,16 +18,16 @@ all files, there is some hints already. I advice you to keep ALL the passwords y
 
 The challenge starts with the file `Misc_5_-_dwarf_vault_200.zip`, which requires a password to unlock. Upon cracking the password and extracting the contents, another ZIP file `dwarf_vault_199.zip` appears. This pattern continues down to `dwarf_vault_1.zip`.
 
-![alt text](image-4.png)
+![alt text](screenshot\image-4.png)
 
-![alt text](image-5.png)
+![alt text](screenshot\image-5.png)
 
 **Automating the Process**
 
 Manually extracting 200 ZIP files would be inefficient, so I wrote a shell script to automate the process:
 > USING THIS .sh [CODE](cracker1.sh) 
 
-![alt text](image-1.png)
+![alt text](screenshot\image-1.png)
 
 This script:
 
@@ -88,7 +88,7 @@ From this, I understood:
 
 **Example how the code work :**
 
-![alt text](image-2.png)
+![alt text](screenshot\image-2.png)
 
 ### **Step 3: Extracting the Flag**
 After analyzing the scripts, I realized that the **passwords** used for each ZIP file were essential for decoding the flag. I then modified my approach to collect all passwords during extraction and save them in a text file. Once I had the full list of passwords, I used them to decode the flag using the coordinate mapping from `mining_report.txt`.
@@ -99,7 +99,7 @@ and store them in **[passwords.txt](passwords.txt)**.
 now we have the passwords we can decode the flag using this ---> **[script](decoder.py)**.
 
 
-![alt text](image.png)
+![alt text](screenshot\image.png)
 
 > PS: (I used `passwords[::-1]` to reverse the list since the passwords were collected in descending order, from `200.zip` down to `1.zip`. Reversing ensures they align correctly with the intended sequence for flag extraction.)
 
